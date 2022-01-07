@@ -1,32 +1,20 @@
 ## usersテーブル
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| nickname           | string | null: false |
-| email              | string | null: false |
-| encrypted_password | string | null: false |
+| Column               | Type   | Options                   |
+| -------------------- | ------ | ------------------------- |
+| nickname             | string | null: false               |
+| email                | string | null: false, unique: true |
+| encrypted_password   | string | null: false               |
+| real_name_two_byte_s | string | null: false               |
+| real_name_two_byte_p | string | null: false               |
+| real_name_kana_s     | string | null: false               |
+| real_name_kana_p     | string | null: false               |
+| birthday             | date   | null: false               |
 
 ### Association
 
-- has_one :profile
 - has_many :items
 - has_many :orders
-
-## profilesテーブル
-
-| Column               | Type    | Options     |
-| -------------------- | ------- | ----------- |
-| real_name_two_byte_s | string  | null: false |
-| real_name_two_byte_p | string  | null: false |
-| real_name_kana_s     | string  | null: false |
-| real_name_kana_p     | string  | null: false |
-| birthday_y           | integer | null: false |
-| birthday_m           | integer | null: false |
-| birthday_d           | integer | null: false |
-
-### Association
-
-- belongs_to :user
 
 ## itemsテーブル
 
@@ -37,14 +25,15 @@
 | category_id        | integer    | null: false                    |
 | situation_id       | integer    | null: false                    |
 | delivery_charge_id | integer    | null: false                    |
-| address_id         | integer    | null: false                    |
-| days_id            | integer    | null: false                    |
+| prefecture_id      | integer    | null: false                    |
+| delivery_time_id   | integer    | null: false                    |
 | price              | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
+- has_one :order
 
 ## ordersテーブル
 
@@ -53,10 +42,12 @@
 | name   | string     | null: false                    |
 | price  | integer    | null: false                    |
 | user   | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
+- belongs_to :item
 - has_one :address
 
 ## addressesテーブル
@@ -64,7 +55,7 @@
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | post_code        | string     | null: false                    |
-| prefectures_id   | integer    | null: false                    |
+| prefecture_id    | integer    | null: false                    |
 | municipalities   | string     | null: false                    |
 | address          | string     | null: false                    |
 | building_name    | string     |                                |

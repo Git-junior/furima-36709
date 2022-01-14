@@ -77,10 +77,15 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include "Real name two byte p can't be blank"
       end
-      it 'お名前(全角)に半角文字が含まれている場合登録できない' do
+      it 'お名前(姓)(全角)に半角文字が含まれている場合登録できない' do
         @user.real_name_two_byte_s = 'ﾔﾏﾀﾞ'
         @user.valid?
         expect(@user.errors.full_messages).to include "Real name two byte s is invalid"
+      end
+      it 'お名前(名)(全角)に半角文字が含まれている場合登録できない' do
+        @user.real_name_two_byte_p = 'ﾘｸﾀﾛｳ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include "Real name two byte p is invalid"
       end
       it 'お名前カナ(姓)(全角)が空では登録できない' do
         @user.real_name_kana_s = ''
@@ -92,10 +97,15 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include "Real name kana p can't be blank"
       end
-      it 'お名前カナ(全角)にカタカナ以外の文字が含まれている場合登録できない' do
+      it 'お名前カナ(姓)(全角)にカタカナ以外の文字が含まれている場合登録できない' do
         @user.real_name_kana_s = '山田'
         @user.valid?
         expect(@user.errors.full_messages).to include "Real name kana s is invalid"
+      end
+      it 'お名前カナ(名)(全角)にカタカナ以外の文字が含まれている場合登録できない' do
+        @user.real_name_kana_p = '陸太郎'
+        @user.valid?
+        expect(@user.errors.full_messages).to include "Real name kana p is invalid"
       end
       it '生年月日が空では登録できない' do
         @user.birthday = ''

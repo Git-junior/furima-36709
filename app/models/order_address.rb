@@ -9,11 +9,11 @@ class OrderAddress
     validates :prefecture_id,  numericality: { other_than: 1 }
     validates :municipalities
     validates :address
-    validates :telephone_number, format: {with: /\A[0-9]{10, 11}\z/}
+    validates :telephone_number, format: {with: /\A[0-9]{10,11}\z/}
   end
 
   def save
-    order = Order.create(user_id; user_id, item_id: item_id)
+    order = Order.create(user_id: user_id, item_id: item_id)
     Address.create(post_code: post_code, prefecture_id: prefecture_id, municipalities: municipalities, address: address, building_name: building_name, telephone_number: telephone_number, order_id: order.id)
   end
 end

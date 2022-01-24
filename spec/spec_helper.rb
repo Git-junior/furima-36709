@@ -93,4 +93,8 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+  config.before(:each) do
+    allow(ActiveJob::Base).to receive(:perform_later).and_return(true)
+  end
 end

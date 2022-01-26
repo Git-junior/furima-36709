@@ -24,6 +24,9 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    if @item.order
+      redirect_to action: :index
+    end
   end
 
   def update

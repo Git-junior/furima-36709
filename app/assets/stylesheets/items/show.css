@@ -206,15 +206,26 @@
   font-size: 23px;
 }
 
-.comment{
+/* 追加分 */
+.comment {
   display: flex;
 }
 
-.comment p{
+.comment p {
    margin: 0;
 }
 
-.user-info{
+.user-info {
   color: gray;
   font-weight: bold;
+}
+
+.comment-red-btn {
+  text-align: center;
+  background-color: #ea352d;
+  font-size: 18px;
+  font-weight: bold;
+  color: #FFF;
+  margin: 20px 0px;
+  padding: 2vh 10vw;
 }

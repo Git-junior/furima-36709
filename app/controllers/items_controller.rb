@@ -44,6 +44,16 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    if params[:q]&.dig(:name)
+      squished_keywords = params[:q][:name].squish
+      params[:q][:name_cont_any] = squished_keywords.split(" ")
+    end
+    @q = Item.ransack(params[:q])
+    @items = @q.result
+    @q_params = params[:q]
+  end
+
   private
   def item_params
     params.require(:item).permit(:image, :name, :text, :category_id, :situation_id, :delivery_charge_id, :prefecture_id, :delivery_time_id, :price).merge(user_id: current_user.id)

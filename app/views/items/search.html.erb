@@ -1,0 +1,21 @@
+<%= render "shared/header" %>
+<div class='result-contents'>
+  <h3 class='title'><%= @q_params[:name] %> の検索結果</h3>
+  <div class='search-item-contents' id="detailed-search-result-wrapper">
+    <ul class='search-item-lists' id="detailed-search-result">
+      <% @items.each do |item| %>
+        <li class='search-item-list'>
+        <%= link_to item_path(item.id) do %>
+          <div class="search-posted-content">
+            <%= image_tag item.image, class:"search-item-box-img" %><br>
+            <h3 class='search-item-name'>
+              <%= item.name %><br>
+            </h3>
+          </div>
+        <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <h3><%= link_to 'トップページへ戻る', root_path, class: :subtitle %></h3>
+</div>

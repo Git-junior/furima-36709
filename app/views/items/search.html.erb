@@ -1,6 +1,6 @@
 <%= render "shared/header" %>
 <div class='result-contents'>
-  <h3 class='title'>検索ページ</h3>
+  <h3 class='title'><%= @q_params[:name] %> の検索結果</h3>
   <div class='search-item-contents' id="detailed-search-result-wrapper">
     <ul class='search-item-lists' id="detailed-search-result">
       <% @items.each do |item| %>

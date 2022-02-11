@@ -6,7 +6,7 @@ class OrderAddress
     validates :user_id
     validates :item_id
     validates :post_code, format: {with: /\A\d{3}-\d{4}\z/}
-    validates :prefecture_id,  numericality: { other_than: 1 }
+    validates :prefecture_id,  numericality: { other_than: 1, message: 'を選択してください' }
     validates :municipalities
     validates :address
     validates :telephone_number, format: {with: /\A\d{10,11}\z/}

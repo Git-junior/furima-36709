@@ -19,6 +19,10 @@ ja:
         delivery_time_id: 発送までの日数
         price: 価格
         user: ユーザー情報
+      comment:
+        text: コメント文
+        user: ユーザー情報
+        item: 商品情報
   activemodel:
     models:
       order_address:

@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        real_name_two_byte_s: お名前(全角)(名字)
+        real_name_two_byte_p: お名前(全角)(名前)
+        real_name_kana_s: お名前カナ(全角)(名字)
+        real_name_kana_p: お名前カナ(全角)(名前)
+        birthday: 生年月日

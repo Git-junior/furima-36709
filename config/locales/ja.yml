@@ -8,3 +8,13 @@ ja:
         real_name_kana_s: お名前カナ(全角)(名字)
         real_name_kana_p: お名前カナ(全角)(名前)
         birthday: 生年月日
+      item:
+        name: 商品名
+        text: 商品の説明
+        image: 画像
+        category_id: カテゴリー
+        situation_id: 商品の状態
+        delivery_charge_id: 配送料の負担
+        prefecture_id: 発送元の地域
+        delivery_time_id: 発送までの日数
+        price: 価格

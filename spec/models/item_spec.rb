@@ -100,7 +100,7 @@ RSpec.describe Item, type: :model do
       it 'ユーザー情報が紐付いていないと出品できない' do
         @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Userを入力してください")
+        expect(@item.errors.full_messages).to include("ユーザー情報を入力してください")
       end
     end
   end

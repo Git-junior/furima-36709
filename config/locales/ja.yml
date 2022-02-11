@@ -28,4 +28,6 @@ ja:
         municipalities: 市区町村
         address: 番地
         telephone_number: 電話番号
+        user_id: ユーザー情報
+        item_id: 商品情報
         token: カード情報
